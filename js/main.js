@@ -624,7 +624,16 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
         .attr("height",  height / 100)
         .style("fill", function(d) { return z(d.Sentiment); })
         .attr("opacity", 0)
-        .attr("display", "none");
+        .attr("display", "none")
+        .on("mouseover", function(d) {
+          tooltip.style("opacity", 1);
+          tooltip.html("Song: " + d.Song + "<br/>" + "Artist: " + d.Artist)
+            .style("left", d3.event.pageX + 5 + "px")
+            .style("top", d3.event.pageY + 5 + "px")
+        })
+        .on("mouseout", function(d) {
+            tooltip.style("opacity", 0)
+        });
 
     // Change main view by toggling radio buttons
     d3.selectAll("input[name='mode']").on("change", function() {
@@ -791,7 +800,7 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
         if (!(document.getElementById("input1").value in artistsAvg)) {
           return
         }
-        
+
         svg3.selectAll(".arc").remove()
         svg3.selectAll("text").remove()
 
@@ -803,7 +812,7 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
         var path = b.append("path")
             .attr("d", arc)
             .style("fill", function(d) { return (d.data.name == "total_pos") ? "green" : "red"; })
-            .on("mouseover", function(d) {           
+            .on("mouseover", function(d) {
 
               if(d.data.name == "total_pos") {
                 songs = data.filter(function(e) { return e.Artist == document.getElementById("input1").value && +e.Sentiment >= 0})
@@ -917,7 +926,7 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
             .data(pie(artistsAvg[document.getElementById("input2").value]))
           .enter().append("g")
             .attr("class", "arc")
-            .on("mouseover", function(d) {           
+            .on("mouseover", function(d) {
 
               if(d.data.name == "total_pos") {
                 songs = data.filter(function(e) { return e.Artist == document.getElementById("input2").value && +e.Sentiment >= 0})
