@@ -282,7 +282,7 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
             .attr("height", 14)
             .attr("opacity", 0)
             .transition()
-            .delay(function(e, i) { return 50 * i; })
+            .delay(function(e, i) { return 25 * i; })
             .attr("x", 108.75)
             .attr("width", width2 / 2)
             .attr("height", 7)
@@ -467,7 +467,7 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
             .attr("height", 14)
             .attr("opacity", 0)
             .transition()
-            .delay(function(e, i) { return 50 * i; })
+            .delay(function(e, i) { return 25 * i; })
             .attr("x", 108.75)
             .attr("width", width2 / 2)
             .attr("height", 7)
@@ -654,9 +654,22 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
           d3.selectAll(".dotMin").attr("display", "initial");
           d3.selectAll(".dotMax").attr("display", "initial");
           d3.selectAll(".lineYear").attr("display", "initial");
-          d3.selectAll(".dotMin").transition().duration(1000).style("opacity", 1);
-          d3.selectAll(".dotMax").transition().duration(1000).style("opacity", 1);
-          d3.selectAll(".lineYear").transition().duration(1000).style("opacity", 1);
+          d3.selectAll(".dotMin").transition()
+            .duration(1000)
+            .delay(function(d) {
+              return (Math.random() * 1000)
+            })
+            .style("opacity", 1);
+          d3.selectAll(".dotMax").transition()
+            .duration(1000)
+            .delay(function(d) {
+              return (Math.random() * 1000)
+            })
+            .style("opacity", 1);
+          d3.selectAll(".lineYear")
+            .transition()
+            .duration(1000)
+            .style("opacity", 1);
 
           x.domain([1965, 2015]);
 
@@ -703,9 +716,21 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
           d3.selectAll(".dotRankMin").attr("display", "initial");
           d3.selectAll(".dotRankMax").attr("display", "initial");
           d3.selectAll(".lineRank").attr("display", "initial");
-          d3.selectAll(".dotRankMin").transition().duration(1000).style("opacity", 1);
-          d3.selectAll(".dotRankMax").transition().duration(1000).style("opacity", 1);
-          d3.selectAll(".lineRank").transition().duration(1000).style("opacity", 1);
+          d3.selectAll(".dotRankMin").transition()
+            .duration(1000)
+            .delay(function(d) {
+              return (Math.random() * 1000)
+            })
+            .style("opacity", 1);
+          d3.selectAll(".dotRankMax").transition().duration(1000)
+            .delay(function(d) {
+              return (Math.random() * 1000)
+            })
+            .style("opacity", 1);
+          d3.selectAll(".lineRank")
+            .transition()
+            .duration(1000)
+            .style("opacity", 1);
 
           x.domain([0, 100]);
           // Add the X Axis
@@ -753,7 +778,11 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
           d3.selectAll(".dotRankMax").attr("display", "none");
           d3.selectAll(".lineRank").attr("display", "none");
           d3.selectAll(".HMtile").attr("display", "initial");
-          d3.selectAll(".HMtile").transition().duration(1000).style("opacity", 1);
+          d3.selectAll(".HMtile").transition()
+            .duration(1000)
+            .delay(function(d) {
+              return (Math.random() * 100)
+            }).style("opacity", 1)
 
           // Add the X Axis
           d3.select(".axisX")
@@ -837,7 +866,7 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
                   .attr("height", height + 5)
                   .attr("y", -5)
                   .attr("fill", "#000")
-                  .attr("opacity", .75);
+                  .attr("opacity", .85);
 
               if (document.getElementById("showByYear").checked) {
 
@@ -948,7 +977,7 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
                   .attr("height", height + 5)
                   .attr("y", -5)
                   .attr("fill", "#000")
-                  .attr("opacity", .75);
+                  .attr("opacity", .85);
 
               if (document.getElementById("showByYear").checked) {
 
