@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+
+<head>
+  <title>Music Sentiment Through Modern History</title>
+
+  <!-- stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<!-- js libraries -->
+<script src="http://d3js.org/d3.v4.min.js"></script>
+
+<!-- main html -->
+<div id="intro">
+  <br />
+  <h1>Sentiment Analysis of Billboard Top 100 1965 - 2015</h1>
+  <h6>
+    Xavier Galloway, Mahmoud Joudeh, Christopher Paschal, Quincy Robbins
+  </h6>
+  <p>
+    Each year, Billboard releases the top 100 songs of that year. For this visualization,
+    we have taken those historical rankings since 1965 and computed sentiment scores for
+    each song's lyrics using python's TextBlob which provides a sentiment value between
+    -1 (very negative) and +1 (very positive). The main view shows the average sentiment
+    score per year across all 100 of that year's songs. The particular year's highest
+    and lowest scores are also shown with dots. By clicking on a specific point
+    in the graph, the view to its right will be populated with sentiment score information
+    and other data about each of the 100 songs from that year. Using the radio toggle buttons
+    above the main view, the view will switch to computing average sentiment score by rank instead
+    of by year. Maximum and minimum dots are updated accordingly. Clicking a specific point will
+    also populate the right hand view, this time showing all songs with a particular rank
+    Below this, you can search for a specific artist to see a similar view for all of their
+    songs that made Billboard's rankings. Enjoy.
+  </p>
+</div>
+
+<div id="line_view">
+  <form>
+    <label><input type="radio" name="mode" value="year" id="showByYear" checked> Year</label>
+    <label><input type="radio" name="mode" value="rank" id="showByRank"> Rank</label>
+    <label><input type="radio" name="mode" value="heatmap" id="showHeatmap"> Heatmap</label>
+  </form>
+</div>
+<div id="year_view">
+  <h6>
+    select a year to view its rankings here
+  </h6>
+</div>
+<div id="artist_view"> 
+  <div id="artist1">
+  </div>
+  <div id="artist2">
+  </div>
+</div>
+
+<!-- main D3 script -->
+<script src="js/main.js"></script>
+
+</body>
+</html>

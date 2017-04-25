@@ -1,0 +1,101 @@
+body {
+  font: 11px sans-serif;
+  text-align: center;
+  background: #202020;
+  color: #ff0000;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* #8d9db6, #667292, #f1e3dd */
+
+h1 {
+  font-size: 3.5em;
+  color: #ffffff;
+}
+
+h6 {
+  font-size: 1.5em;
+  color: #ffffff;
+  margin: 0px;
+  padding-bottom: 10px
+}
+
+p {
+  font-size: 1em;
+  color: #ffffff;
+  padding: 0px 50px 0px 50px;
+}
+
+#line_view {
+  font-size: 1em;
+  color: #ffffff;
+  float: left;
+}
+
+#year_view {
+  float: right;
+}
+
+#year_view text {
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+#artist_view {
+  float: left;
+  padding: 20px 0px 0px 100px;
+}
+
+#artist_view text {
+  font-size: 2em;
+  pointer-events: none;
+}
+
+#artist_view .avg {
+  font-size: 3em;
+  pointer-events: none;
+}
+
+#artist_view input{
+  display: block;
+  margin-bottom: 10px;
+}
+
+#artist1 {
+  display: inline-block;
+}
+
+#artist2 {
+  display: inline-block;
+}
+
+.lineYear, .lineRank {
+  fill: none;
+  stroke: #b6a85e;
+  stroke-width: 2px;
+  pointer-events: none;
+}
+
+.axis, .axis path, .axisX, .axisX path{
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+.dot, .dotRank, .dotMin, .dotMax, .dotRankMin, .dotRankMax, .dotHighlight {
+  stroke: none;
+}
+
+.tick line {
+  stroke: #fff;
+}
+
+.tooltip {
+  background: #fff;
+  color: #202020;
+  border-radius: 5px;
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  text-align: left;
+}
