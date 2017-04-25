@@ -816,12 +816,14 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
 
               if(d.data.name == "total_pos") {
                 songs = data.filter(function(e) { return e.Artist == document.getElementById("input1").value && +e.Sentiment >= 0})
+                songs.sort(function(a,b) {return b.Year - a.Year;});
               } else {
                 songs = data.filter(function(e) { return e.Artist == document.getElementById("input1").value && +e.Sentiment < 0})
+                songs.sort(function(a,b) {return b.Year - a.Year;});
               }
               str = ""
               for (var i = songs.length - 1; i >= 0; i--) {
-                str = str + songs[i].Song + "<br/>"
+                str = str + songs[i].Song + " (" + songs[i].Year + ")" + "<br/>"
               };
 
               tooltip.style("opacity", 1);
@@ -915,7 +917,7 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
 
   input2.on("change", function(){
 
-        if (!(document.getElementById("input1").value in artistsAvg)) {
+        if (!(document.getElementById("input2").value in artistsAvg)) {
           return
         }
 
@@ -930,12 +932,14 @@ d3.csv("data/clean_billboard_with_sentiment.csv", function(error, data) {
 
               if(d.data.name == "total_pos") {
                 songs = data.filter(function(e) { return e.Artist == document.getElementById("input2").value && +e.Sentiment >= 0})
+                songs.sort(function(a,b) {return b.Year - a.Year;});
               } else {
                 songs = data.filter(function(e) { return e.Artist == document.getElementById("input2").value && +e.Sentiment < 0})
+                songs.sort(function(a,b) {return b.Year - a.Year;});
               }
               str = ""
               for (var i = songs.length - 1; i >= 0; i--) {
-                str = str + songs[i].Song + "<br/>"
+                str = str + songs[i].Song + " (" + songs[i].Year + ")" + "<br/>"
               };
 
               svg.append("rect")
